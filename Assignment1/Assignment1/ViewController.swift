@@ -8,24 +8,33 @@
 import UIKit
 import SnapKit
 
+
+
 class ViewController: UIViewController {                // 다시 짜는 코드
     
     private lazy var textfield1: UITextField = {        // UITextField를 만들었습니다.
         let textField = UITextField()
         textField.placeholder = "첫번째 숫자를 입력해주세요"
-        let paddingView1 = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textfield1.frame.height))
-        textfield1.layer.cornerRadius = 20
+        let paddingView1 = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textField.frame.height))
+        textField.leftView = paddingView1
+        textField.leftViewMode = .always
+        textField.backgroundColor = .systemGray6
+        textField.layer.cornerRadius = 2
+       // textField.text() = Int
         return textField
     }()
     
-    private lazy var textfield2: UITextField = {        // UITextField를 만들었습니다.
+    private lazy var textfield2: UITextField = {       // UITextField를 만들었습니다.
         let textField = UITextField()
         textField.placeholder = "두번째 숫자를 입력해주세요"
-        let paddingView1 = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textfield1.frame.height))
-        textfield2.layer.cornerRadius = 20
+        let paddingView2 = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textField.frame.height))
+        textField.leftView = paddingView2
+        textField.leftViewMode = .always
+        textField.backgroundColor = .systemGray6
+        textField.layer.cornerRadius = 20
+      
         return textField
     }()
-    
     
     private lazy var nameLabel: UILabel = {        // UILabel를 만들었습니다.
         let label = UILabel()
@@ -33,7 +42,7 @@ class ViewController: UIViewController {                // 다시 짜는 코드
         label.font = .systemFont(ofSize: 15)
         label.textColor = .black
         label.textAlignment = .center
-        nameLabel.layer.cornerRadius = 20
+        label.layer.cornerRadius = 20
         return label
     }()
     
@@ -85,12 +94,23 @@ class ViewController: UIViewController {                // 다시 짜는 코드
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        layout()     // 화면에 띄워야하기 때문에 "Layout()을 불러주어야 한다.
+        view.backgroundColor = .white
+        layout()
     }
     
     
     
-    func layout() {     // textfield1에 관한 레이아웃
+    func layout() {
+        
+        view.addSubview(textfield1)
+        view.addSubview(textfield2)
+        view.addSubview(nameLabel)
+        view.addSubview(addButton)
+        view.addSubview(subButton)
+        view.addSubview(mulButton)
+        view.addSubview(divButton)
+        
+        // textfield1에 관한 레이아웃
         textfield1.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(157)
             make.leading.equalToSuperview().offset(47)
@@ -98,11 +118,12 @@ class ViewController: UIViewController {                // 다시 짜는 코드
             make.height.equalTo(35)
         }
         
+
         // textfield2에 관한 레이아웃
         textfield2.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(202)
             make.leading.equalToSuperview().offset(47)
-            make.width.equalTo(300)
+            make.width.equalTo(300) // wuidth값을 줄바에 trailing로 값을 설정해주는게 좋음
             make.height.equalTo(35)
         }
         
@@ -110,8 +131,9 @@ class ViewController: UIViewController {                // 다시 짜는 코드
         nameLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(261)
             make.leading.equalToSuperview().offset(142)
-            make.width.equalTo(108)
-            make.height.equalTo(22)
+            //make.width.equalTo(108)
+            //make.height.equalTo(22)
+            make.center.centerX
         }
         
         // addButton에 관한 레이아웃
@@ -146,6 +168,31 @@ class ViewController: UIViewController {                // 다시 짜는 코드
             make.height.equalTo(40)
         }
     }
+    
+  /*
+    @objc func add() {
+        a = Int(textfield1.text)
+        b = Int(textfield2.text)
+        nameLabel.text = "\(a) + \(b) = \(a+b)"
+    }
+
+    @objc func sub() {
+        a = Int(textfield1.text)
+        b = Int(textfield2.text)
+        nameLabel.text = "\(a) - \(b) = \(a-b)"
+    }
+
+    @objc func mul() {
+        a = Int(textfield1.text)
+        b = Int(textfield2.text)
+        nameLabel.text = "\(a) * \(b) = \(a*b)"
+    }
+
+    @objc func div() {
+        a = Int(textfield1.text)
+        b = Int(textfield2.text)
+        nameLabel.text = "\(a) / \(b) = \(a/b)"
+    }
+    */
+    
 }
-
-
