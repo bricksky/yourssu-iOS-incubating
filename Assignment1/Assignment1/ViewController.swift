@@ -8,7 +8,7 @@ import UIKit
 import SnapKit
 
 
-
+// 뷰 구현 및 단순 계산 로직 완성
 class ViewController: UIViewController {                // 다시 짜는 코드
     
     var a: Int = 0
