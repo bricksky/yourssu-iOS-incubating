@@ -3,7 +3,6 @@
 //  Assignment1
 //
 //  Created by 김동현 on 2023/04/02.
-//
 
 import UIKit
 import SnapKit
@@ -12,6 +11,9 @@ import SnapKit
 
 class ViewController: UIViewController {                // 다시 짜는 코드
     
+    var a: Int = 0
+    var b: Int = 0
+    
     private lazy var textfield1: UITextField = {        // UITextField를 만들었습니다.
         let textField = UITextField()
         textField.placeholder = "첫번째 숫자를 입력해주세요"
@@ -19,8 +21,8 @@ class ViewController: UIViewController {                // 다시 짜는 코드
         textField.leftView = paddingView1
         textField.leftViewMode = .always
         textField.backgroundColor = .systemGray6
-        textField.layer.cornerRadius = 2
-       // textField.text() = Int
+        textField.layer.cornerRadius = 20
+        // textField.text() = Int
         return textField
     }()
     
@@ -32,7 +34,7 @@ class ViewController: UIViewController {                // 다시 짜는 코드
         textField.leftViewMode = .always
         textField.backgroundColor = .systemGray6
         textField.layer.cornerRadius = 20
-      
+        
         return textField
     }()
     
@@ -51,7 +53,7 @@ class ViewController: UIViewController {                // 다시 짜는 코드
         button.setTitle("더하기", for: .normal)
         button.backgroundColor = .systemTeal
         //  button.setTitleColor = .black
-        //button.addTarget(self, action: #selector(presentButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(add), for: .touchUpInside)
         button.titleLabel?.textAlignment = .center
         button.layer.cornerRadius = 20
         return button
@@ -62,7 +64,7 @@ class ViewController: UIViewController {                // 다시 짜는 코드
         button.setTitle("빼기", for: .normal)
         button.backgroundColor = .systemTeal
         // button.setTitleColor = .black
-        //button.addTarget(self, action: #selector(presentButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(sub), for: .touchUpInside)
         button.titleLabel?.textAlignment = .center
         button.layer.cornerRadius = 20
         return button
@@ -73,7 +75,7 @@ class ViewController: UIViewController {                // 다시 짜는 코드
         button.setTitle("곱하기", for: .normal)
         button.backgroundColor = .systemTeal
         //   button.setTitleColor = .black
-        //button.addTarget(self, action: #selector(presentButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(mul), for: .touchUpInside)
         button.titleLabel?.textAlignment = .center
         button.layer.cornerRadius = 20
         return button
@@ -84,7 +86,7 @@ class ViewController: UIViewController {                // 다시 짜는 코드
         button.setTitle("나누기", for: .normal)
         button.backgroundColor = .systemTeal
         //button.setTitleColor = .black
-        //   button.addTarget(self, action: #selector(presentButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(div), for: .touchUpInside)
         button.titleLabel?.textAlignment = .center
         button.layer.cornerRadius = 20
         return button
@@ -118,7 +120,7 @@ class ViewController: UIViewController {                // 다시 짜는 코드
             make.height.equalTo(35)
         }
         
-
+        
         // textfield2에 관한 레이아웃
         textfield2.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(202)
@@ -133,7 +135,7 @@ class ViewController: UIViewController {                // 다시 짜는 코드
             make.leading.equalToSuperview().offset(142)
             //make.width.equalTo(108)
             //make.height.equalTo(22)
-            make.center.centerX
+            make.centerX.equalToSuperview()
         }
         
         // addButton에 관한 레이아웃
@@ -169,30 +171,28 @@ class ViewController: UIViewController {                // 다시 짜는 코드
         }
     }
     
-  /*
     @objc func add() {
-        a = Int(textfield1.text)
-        b = Int(textfield2.text)
-        nameLabel.text = "\(a) + \(b) = \(a+b)"
-    }
-
-    @objc func sub() {
-        a = Int(textfield1.text)
-        b = Int(textfield2.text)
-        nameLabel.text = "\(a) - \(b) = \(a-b)"
-    }
-
-    @objc func mul() {
-        a = Int(textfield1.text)
-        b = Int(textfield2.text)
-        nameLabel.text = "\(a) * \(b) = \(a*b)"
-    }
-
-    @objc func div() {
-        a = Int(textfield1.text)
-        b = Int(textfield2.text)
-        nameLabel.text = "\(a) / \(b) = \(a/b)"
-    }
-    */
-    
-}
+          a = Int(textfield1.text ?? String())!   //Int타입 Int로 강제 형변환하고 !로 강제 언랩핑을 한다.
+          b = Int(textfield2.text ?? String())!
+          nameLabel.text = "\(a) + \(b) = \(a+b)"
+      }
+      
+      @objc func sub() {
+          a = Int(textfield1.text ?? String())!
+          b = Int(textfield2.text ?? String())!
+          nameLabel.text = "\(a) - \(b) = \(a-b)"
+      }
+      
+      @objc func mul() {
+          a = Int(textfield1.text ?? String())!
+          b = Int(textfield2.text ?? String())!
+          nameLabel.text = "\(a) * \(b) = \(a*b)"
+      }
+      
+      @objc func div() {
+          a = Int(textfield1.text ?? String())!
+          b = Int(textfield2.text ?? String())!
+          nameLabel.text = "\(a) / \(b) = \(a/b)"
+      }
+      
+  }
