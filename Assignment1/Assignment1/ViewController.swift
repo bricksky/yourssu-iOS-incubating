@@ -132,7 +132,7 @@ class ViewController: UIViewController {                // 다시 짜는 코드
         // nameLabel에 관한 레이아웃
         nameLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(261)
-            make.leading.equalToSuperview().offset(142)
+            //make.leading.equalToSuperview().offset(142)
             //make.width.equalTo(108)
             //make.height.equalTo(22)
             make.centerX.equalToSuperview()
