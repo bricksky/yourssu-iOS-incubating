@@ -4,17 +4,17 @@
 //
 //  Created by 김동현 on 2023/04/02.
 
+
 import UIKit
 import SnapKit
 
 
-// 뷰 구현 및 단순 계산 로직 완성
-class ViewController: UIViewController {                // 다시 짜는 코드
+class ViewController: UIViewController {
     
     var a: Int = 0
     var b: Int = 0
     
-    private lazy var textfield1: UITextField = {        // UITextField를 만들었습니다.
+    private lazy var textField1: UITextField = {
         let textField = UITextField()
         textField.placeholder = "첫번째 숫자를 입력해주세요"
         let paddingView1 = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textField.frame.height))
@@ -26,7 +26,7 @@ class ViewController: UIViewController {                // 다시 짜는 코드
         return textField
     }()
     
-    private lazy var textfield2: UITextField = {       // UITextField를 만들었습니다.
+    private lazy var textField2: UITextField = {
         let textField = UITextField()
         textField.placeholder = "두번째 숫자를 입력해주세요"
         let paddingView2 = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textField.frame.height))
@@ -38,7 +38,7 @@ class ViewController: UIViewController {                // 다시 짜는 코드
         return textField
     }()
     
-    private lazy var nameLabel: UILabel = {        // UILabel를 만들었습니다.
+    private lazy var resultLabel: UILabel = {
         let label = UILabel()
         label.text = "버튼을 눌러주세요!"
         label.font = .systemFont(ofSize: 15)
@@ -48,7 +48,7 @@ class ViewController: UIViewController {                // 다시 짜는 코드
         return label
     }()
     
-    private lazy var addButton: UIButton = {        // UIBuutton을 만들었습니다.(더하기)
+    private lazy var addButton: UIButton = {
         let button = UIButton()
         button.setTitle("더하기", for: .normal)
         button.backgroundColor = .systemTeal
@@ -59,7 +59,7 @@ class ViewController: UIViewController {                // 다시 짜는 코드
         return button
     } ()
     
-    private lazy var subButton: UIButton = {        // UIBuutton을 만들었습니다.(빼기)
+    private lazy var subButton: UIButton = {
         let button = UIButton()
         button.setTitle("빼기", for: .normal)
         button.backgroundColor = .systemTeal
@@ -70,7 +70,7 @@ class ViewController: UIViewController {                // 다시 짜는 코드
         return button
     } ()
     
-    private lazy var mulButton: UIButton = {        // UIBuutton을 만들었습니다.(곱하기)
+    private lazy var mulButton: UIButton = {
         let button = UIButton()
         button.setTitle("곱하기", for: .normal)
         button.backgroundColor = .systemTeal
@@ -81,7 +81,7 @@ class ViewController: UIViewController {                // 다시 짜는 코드
         return button
     } ()
     
-    private lazy var divButton: UIButton = {        // UIBuutton을 만들었습니다.(나누기)
+    private lazy var divButton: UIButton = {
         let button = UIButton()
         button.setTitle("나누기", for: .normal)
         button.backgroundColor = .systemTeal
@@ -104,95 +104,138 @@ class ViewController: UIViewController {                // 다시 짜는 코드
     
     func layout() {
         
-        view.addSubview(textfield1)
-        view.addSubview(textfield2)
-        view.addSubview(nameLabel)
+        view.addSubview(textField1)
+        view.addSubview(textField2)
+        view.addSubview(resultLabel)
         view.addSubview(addButton)
         view.addSubview(subButton)
         view.addSubview(mulButton)
         view.addSubview(divButton)
         
-        // textfield1에 관한 레이아웃
-        textfield1.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(157)
+        
+        textField1.snp.makeConstraints { make in
+            make.top.equalTo(textField2.snp.bottom).offset(-80)
             make.leading.equalToSuperview().offset(47)
+            make.trailing.equalToSuperview().offset(-47)
             make.width.equalTo(300)
             make.height.equalTo(35)
         }
         
         
-        // textfield2에 관한 레이아웃
-        textfield2.snp.makeConstraints { make in
+        
+        textField2.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(202)
             make.leading.equalToSuperview().offset(47)
-            make.width.equalTo(300) // wuidth값을 줄바에 trailing로 값을 설정해주는게 좋음
+            make.trailing.equalToSuperview().offset(-47)
+            make.width.equalTo(300)
             make.height.equalTo(35)
         }
         
-        // nameLabel에 관한 레이아웃
-        nameLabel.snp.makeConstraints { make in
+        resultLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(261)
-            //make.leading.equalToSuperview().offset(142)
-            //make.width.equalTo(108)
-            //make.height.equalTo(22)
             make.centerX.equalToSuperview()
         }
         
-        // addButton에 관한 레이아웃
+        
         addButton.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(311)
-            make.leading.equalToSuperview().offset(46)
+            make.leading.equalToSuperview().offset(47)
+            make.trailing.equalToSuperview().offset(-47)
             make.width.equalTo(300)
             make.height.equalTo(40)
         }
         
-        // subButton에 관한 레이아웃
+        
         subButton.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(360)
-            make.leading.equalToSuperview().offset(46)
+            make.leading.equalToSuperview().offset(47)
+            make.trailing.equalToSuperview().offset(-47)
             make.width.equalTo(300)
             make.height.equalTo(40)
         }
         
-        // mulButtonButton에 관한 레이아웃
+        
         mulButton.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(410)
-            make.leading.equalToSuperview().offset(46)
+            make.leading.equalToSuperview().offset(47)
+            make.trailing.equalToSuperview().offset(-47)
             make.width.equalTo(300)
             make.height.equalTo(40)
         }
         
-        // divButton에 관한 레이아웃
+        
         divButton.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(460)
-            make.leading.equalToSuperview().offset(46)
+            make.leading.equalToSuperview().offset(47)
+            make.trailing.equalToSuperview().offset(-47)
             make.width.equalTo(300)
             make.height.equalTo(40)
         }
     }
     
     @objc func add() {
-          a = Int(textfield1.text ?? String())!   //Int타입 Int로 강제 형변환하고 !로 강제 언랩핑을 한다.
-          b = Int(textfield2.text ?? String())!
-          nameLabel.text = "\(a) + \(b) = \(a+b)"
-      }
-      
-      @objc func sub() {
-          a = Int(textfield1.text ?? String())!
-          b = Int(textfield2.text ?? String())!
-          nameLabel.text = "\(a) - \(b) = \(a-b)"
-      }
-      
-      @objc func mul() {
-          a = Int(textfield1.text ?? String())!
-          b = Int(textfield2.text ?? String())!
-          nameLabel.text = "\(a) * \(b) = \(a*b)"
-      }
-      
-      @objc func div() {
-          a = Int(textfield1.text ?? String())!
-          b = Int(textfield2.text ?? String())!
-          nameLabel.text = "\(a) / \(b) = \(a/b)"
-      }
-      
-  }
+        if let text1 = textField1.text, let text2 = textField2.text {
+            if let a = Int(text1), let b = Int(text2) {
+                let result = a + b
+                resultLabel.text = "\(a) + \(b) = \(a+b)"
+            } else {
+                resultLabel.text = "값을 먼저 입력해주세요"
+                resultLabel.textColor = .gray
+            }
+        } else {
+            resultLabel.text = "값을 모두 입력해주세요"
+            resultLabel.textColor = .gray
+        }
+    }
+    
+    @objc func sub() {
+        if let text1 = textField1.text, let text2 = textField2.text {
+            if let a = Int(text1), let b = Int(text2) {
+                let result = a - b
+                resultLabel.text = "\(a) - \(b) = \(a-b)"
+            } else {
+                resultLabel.text = "값을 먼저 입력해주세요"
+                resultLabel.textColor = .gray
+            }
+        } else {
+            resultLabel.text = "값을 모두 입력해주세요"
+            resultLabel.textColor = .gray
+        }
+    }
+    
+    @objc func mul() {
+        if let text1 = textField1.text, let text2 = textField2.text {
+            if let a = Int(text1), let b = Int(text2) {
+                let result = a * b
+                resultLabel.text = "\(a) * \(b) = \(a*b)"
+            } else {
+                resultLabel.text = "값을 먼저 입력해주세요"
+                resultLabel.textColor = .gray
+            }
+        } else {
+            resultLabel.text = "값을 모두 입력해주세요"
+            resultLabel.textColor = .gray
+        }
+    }
+    
+    @objc func div() {
+        if let text1 = textField1.text, let text2 = textField2.text {
+            if let a = Int(text1), let b = Int(text2) {
+                if a != 0 {
+                    let result = a / b
+                    resultLabel.text = "\(a) / \(b) = \(result)"
+                } else {
+                    resultLabel.text = "0으로 나눌 수 없습니다."
+                    resultLabel.textColor = .gray
+                }
+            } else {
+                resultLabel.text = "값을 먼저 입력해주세요."
+                resultLabel.textColor = .gray
+            }
+        } else {
+            resultLabel.text = "값을 모두 입력해주세요."
+            
+        }
+    }
+
+}
