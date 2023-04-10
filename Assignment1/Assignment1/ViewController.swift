@@ -92,18 +92,13 @@ class ViewController: UIViewController {
         return button
     } ()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         layout()
     }
     
-    
-    
     func layout() {
-        
         view.addSubview(textField1)
         view.addSubview(textField2)
         view.addSubview(resultLabel)
@@ -112,60 +107,53 @@ class ViewController: UIViewController {
         view.addSubview(mulButton)
         view.addSubview(divButton)
         
-        
         textField1.snp.makeConstraints { make in
-            make.top.equalTo(textField2.snp.bottom).offset(-80)
-            make.leading.equalToSuperview().offset(47)
-            make.trailing.equalToSuperview().offset(-47)
+            make.top.equalToSuperview().inset(157)
+            make.leading.equalToSuperview().inset(47)
+            make.trailing.equalToSuperview().inset(47)
             make.width.equalTo(300)
             make.height.equalTo(35)
         }
         
-        
-        
         textField2.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(202)
-            make.leading.equalToSuperview().offset(47)
-            make.trailing.equalToSuperview().offset(-47)
+            make.top.equalTo(textField1.snp.bottom).offset(10)
+            make.leading.equalToSuperview().inset(47)
+            make.trailing.equalToSuperview().inset(47)
             make.width.equalTo(300)
             make.height.equalTo(35)
         }
         
         resultLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(261)
+            make.top.equalTo(textField2.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
         }
         
-        
         addButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(311)
-            make.leading.equalToSuperview().offset(47)
-            make.trailing.equalToSuperview().offset(-47)
+            make.top.equalTo(resultLabel.snp.bottom).offset(20)
+            make.leading.equalToSuperview().inset(47)
+            make.trailing.equalToSuperview().inset(47)
             make.width.equalTo(300)
             make.height.equalTo(40)
         }
-        
         
         subButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(360)
+            make.top.equalTo(addButton.snp.bottom).offset(10)
             make.leading.equalToSuperview().offset(47)
             make.trailing.equalToSuperview().offset(-47)
             make.width.equalTo(300)
             make.height.equalTo(40)
         }
-        
         
         mulButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(410)
+            make.top.equalTo(subButton.snp.bottom).offset(10)
             make.leading.equalToSuperview().offset(47)
             make.trailing.equalToSuperview().offset(-47)
             make.width.equalTo(300)
             make.height.equalTo(40)
         }
         
-        
         divButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(460)
+            make.top.equalTo(mulButton.snp.bottom).offset(10)
             make.leading.equalToSuperview().offset(47)
             make.trailing.equalToSuperview().offset(-47)
             make.width.equalTo(300)
@@ -176,7 +164,6 @@ class ViewController: UIViewController {
     @objc func add() {
         if let text1 = textField1.text, let text2 = textField2.text {
             if let a = Int(text1), let b = Int(text2) {
-                let result = a + b
                 resultLabel.text = "\(a) + \(b) = \(a+b)"
             } else {
                 resultLabel.text = "값을 먼저 입력해주세요"
@@ -191,7 +178,6 @@ class ViewController: UIViewController {
     @objc func sub() {
         if let text1 = textField1.text, let text2 = textField2.text {
             if let a = Int(text1), let b = Int(text2) {
-                let result = a - b
                 resultLabel.text = "\(a) - \(b) = \(a-b)"
             } else {
                 resultLabel.text = "값을 먼저 입력해주세요"
@@ -206,7 +192,6 @@ class ViewController: UIViewController {
     @objc func mul() {
         if let text1 = textField1.text, let text2 = textField2.text {
             if let a = Int(text1), let b = Int(text2) {
-                let result = a * b
                 resultLabel.text = "\(a) * \(b) = \(a*b)"
             } else {
                 resultLabel.text = "값을 먼저 입력해주세요"
@@ -221,7 +206,7 @@ class ViewController: UIViewController {
     @objc func div() {
         if let text1 = textField1.text, let text2 = textField2.text {
             if let a = Int(text1), let b = Int(text2) {
-                if a != 0 {
+                if b != 0 {
                     let result = a / b
                     resultLabel.text = "\(a) / \(b) = \(result)"
                 } else {
@@ -234,8 +219,7 @@ class ViewController: UIViewController {
             }
         } else {
             resultLabel.text = "값을 모두 입력해주세요."
-            
         }
     }
-
+    
 }
