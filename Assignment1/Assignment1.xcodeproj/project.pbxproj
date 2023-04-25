@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D374B96529F7A3F0000FD88C /* CalculaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D374B96429F7A3F0000FD88C /* CalculaterView.swift */; };
+		D374B96729F7A811000FD88C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D374B96629F7A811000FD88C /* BaseViewController.swift */; };
 		D3E56B5929D9488C00BE5ABD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E56B5829D9488C00BE5ABD /* AppDelegate.swift */; };
 		D3E56B5B29D9488C00BE5ABD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E56B5A29D9488C00BE5ABD /* SceneDelegate.swift */; };
-		D3E56B5D29D9488C00BE5ABD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E56B5C29D9488C00BE5ABD /* ViewController.swift */; };
+		D3E56B5D29D9488C00BE5ABD /* CalculaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E56B5C29D9488C00BE5ABD /* CalculaterViewController.swift */; };
 		D3E56B6229D9488D00BE5ABD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3E56B6129D9488D00BE5ABD /* Assets.xcassets */; };
 		D3E56B6529D9488D00BE5ABD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3E56B6329D9488D00BE5ABD /* LaunchScreen.storyboard */; };
 		D3E56B6E29D9534100BE5ABD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D3E56B6D29D9534100BE5ABD /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D374B96429F7A3F0000FD88C /* CalculaterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculaterView.swift; sourceTree = "<group>"; };
+		D374B96629F7A811000FD88C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		D3E56B5529D9488C00BE5ABD /* Assignment1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3E56B5829D9488C00BE5ABD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3E56B5A29D9488C00BE5ABD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D3E56B5C29D9488C00BE5ABD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D3E56B5C29D9488C00BE5ABD /* CalculaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculaterViewController.swift; sourceTree = "<group>"; };
 		D3E56B6129D9488D00BE5ABD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3E56B6429D9488D00BE5ABD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3E56B6629D9488D00BE5ABD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,7 +62,9 @@
 			children = (
 				D3E56B5829D9488C00BE5ABD /* AppDelegate.swift */,
 				D3E56B5A29D9488C00BE5ABD /* SceneDelegate.swift */,
-				D3E56B5C29D9488C00BE5ABD /* ViewController.swift */,
+				D374B96429F7A3F0000FD88C /* CalculaterView.swift */,
+				D3E56B5C29D9488C00BE5ABD /* CalculaterViewController.swift */,
+				D374B96629F7A811000FD88C /* BaseViewController.swift */,
 				D3E56B6129D9488D00BE5ABD /* Assets.xcassets */,
 				D3E56B6329D9488D00BE5ABD /* LaunchScreen.storyboard */,
 				D3E56B6629D9488D00BE5ABD /* Info.plist */,
@@ -142,8 +148,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3E56B5D29D9488C00BE5ABD /* ViewController.swift in Sources */,
+				D374B96729F7A811000FD88C /* BaseViewController.swift in Sources */,
+				D3E56B5D29D9488C00BE5ABD /* CalculaterViewController.swift in Sources */,
 				D3E56B5929D9488C00BE5ABD /* AppDelegate.swift in Sources */,
+				D374B96529F7A3F0000FD88C /* CalculaterView.swift in Sources */,
 				D3E56B5B29D9488C00BE5ABD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
